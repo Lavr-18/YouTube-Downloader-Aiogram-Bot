@@ -19,12 +19,11 @@ async def send_welcome(message: types.Message):
     await bot.send_message(message.chat.id, welcome_message)
 
     # Remove all .mp4 files
-    dir_name = "/Users/nurto/PycharmProjects/YouTube Downloader Aiogram"
-    files = os.listdir(dir_name)
+    files = os.listdir()
 
     for item in files:
         if item.endswith(".mp4"):
-            os.remove(os.path.join(dir_name, item))
+            os.remove(item)
 
 
 async def youtube_download(message, path, call):
@@ -53,12 +52,11 @@ async def get_message(message: types.Message):
     """Get link from YouTube"""
 
     # Remove all .mp4 files
-    dir_name = "/Users/nurto/PycharmProjects/YouTube Downloader Aiogram"
-    files = os.listdir(dir_name)
+    files = os.listdir()
 
     for item in files:
         if item.endswith(".mp4"):
-            os.remove(os.path.join(dir_name, item))
+            os.remove(item)
 
     try:
         global yt
@@ -84,6 +82,7 @@ async def download(callback: types.CallbackQuery):
 
 async def main():
     await dp.start_polling(dp)
+
 
 if __name__ == '__main__':
     asyncio.run(main())
